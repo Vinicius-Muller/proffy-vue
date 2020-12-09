@@ -1,12 +1,13 @@
 <template>
-  <div class="home">
-    
-  </div>
+  <p>form</p>
 </template>
 
 <script>
-
 export default {
-  name: 'Home'
+name: 'TeacherForm'
 }
 </script>
+
+<style>
+
+</style>
