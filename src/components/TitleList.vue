@@ -50,6 +50,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(145 107 234);
   }
 
   .wrapper h1 {
