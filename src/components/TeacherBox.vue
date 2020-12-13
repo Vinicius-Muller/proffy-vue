@@ -1,13 +1,13 @@
 <template>
  <main>
-   <article>
+   <article v-for="(teacher, index) in Teachers" :key="index">
      <header>
        <div class="img"></div>
-       <h2>Vinicius Muller</h2>
+       <h2>{{teacher.name}}</h2>
      </header>
-     <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde architecto excepturi quae, modi similique vel dicta quia, soluta numquam facere dolorem d, delectus?</p>
+     <p class="description">{{teacher.description}}</p>
      <footer>
-       <p>Preço/Hora <strong>R$20,00</strong></p>
+       <p>Preço/Hora <strong>R${{teacher.price}}</strong></p>
        <button><img src="@/assets/icons/whatsapp.svg" alt="Entrar em contato no whatsapp">
        <span>Entrar em contato</span>
        </button>
@@ -18,7 +18,8 @@
 
 <script>
 export default {
-  name: "TeacherBox"
+  name: "TeacherBox",
+  props:["Teachers"]
 }
 </script>
 

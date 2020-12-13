@@ -2,9 +2,7 @@
   <div class="wrapper-view">
   <Header />
   <TitleList />
-  <TeacherBox />
-  <TeacherBox />
-  <TeacherBox />
+  <TeacherBox :Teachers="Teachers"/>
   </div>
 </template>
 
@@ -18,6 +16,30 @@ components: {
   Header,
   TitleList,
   TeacherBox
+},
+data() {
+  return {
+    Teachers: {
+    Vinicius: {
+      name:"Vinícius Muller",
+      description:"Oi meu nome é Vinícius",
+      fone:"981010207",
+      price:"20,00"
+    },
+    Mayk: {
+      name:"Mayk Brito",
+      description:"Oi meu nome é Mayk",
+      fone:"981010208",
+      price:"30,00"
+    },
+    Diego: {
+      name:"Diego Fernandes",
+      description:"Oi meu nome é Diego",
+      fone:"981010209",
+      price:"40,00"
+    }
+    }
+  }
 }
 }
 </script>
