@@ -3,6 +3,8 @@
   <Header />
   <TitleList />
   <TeacherBox />
+  <TeacherBox />
+  <TeacherBox />
   </div>
 </template>
 
