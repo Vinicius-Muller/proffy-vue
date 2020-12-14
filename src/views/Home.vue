@@ -37,7 +37,6 @@ export default {
 
 .buttons-wrapper {
   display: flex;
-  justify-content: space-evenly;
 }
 
 .list {
@@ -52,6 +51,7 @@ export default {
   text-decoration: none;
   color: white;
   font-size: 1.4rem;
+  margin-left: 100px;
 }
 
 .list img {

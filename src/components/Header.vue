@@ -1,9 +1,9 @@
 <template>
   <header>
     <router-link to="/">
-    <img class="back" src="@/assets/icons/back.svg" alt="Voltar a pagina inicial">
-    </router-link>
     <img class="logo" src="@/assets/logo.svg" alt="Proffy">
+    </router-link>
+    <slot></slot>
   </header>
 </template>
 
@@ -18,18 +18,14 @@ export default {
     width: 100vw;
     height: 50px;
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     background:rgb(145 107 234);
   }
 
-  header a .back {
+  header a .logo {
     width: 100px;
-    height: 30px;
+    height: 50px;
   }
 
-  header .logo {
-    width: 80px;
-    height: 20px;
-  }
 </style>

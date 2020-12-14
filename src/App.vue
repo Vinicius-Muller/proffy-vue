@@ -15,7 +15,12 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
+
 h1 {
   font-size: 1.8rem;
+}
+
+a {
+  margin: 0 20px;
 }
 </style>

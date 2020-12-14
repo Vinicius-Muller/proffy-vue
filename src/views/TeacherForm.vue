@@ -1,6 +1,8 @@
 <template>
   <section class="wrapper-view">
-    <Header />
+    <Header>
+      <router-link to="/TeacherList"><img class="go-to" src="@/assets/icons/back.svg" alt="Veja os proffys disponíveis">Veja os proffys disponíveis</router-link>
+    </Header>
     <div class="title-box">
       <h1>Que incrivel que você quer dar aula</h1>
       <p>O primeiro passo, é preencher esse formlário de inscrição</p>
@@ -72,6 +74,20 @@ components: {
 </script>
 
 <style scoped>
+
+a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a .go-to {
+  width: 30px;
+  height: 25px;
+  margin-right: 10px;
+}
 
 .wrapper-view {
   min-height: 100vh;

@@ -1,6 +1,8 @@
 <template>
   <section class="wrapper-view">
-  <Header />
+  <Header>
+    <router-link to="/TeacherForm"><img class="go-to" src="@/assets/icons/back.svg" alt="Veja os proffys disponíveis">Cadastre-se</router-link>
+  </Header>
   <TitleList />
   <TeacherBox :Teachers="Teachers"/>
   </section>
@@ -45,6 +47,21 @@ data() {
 </script>
 
 <style scoped>
+
+a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a .go-to {
+  width: 30px;
+  height: 25px;
+  margin-right: 10px;
+}
+
 .wrapper-view {
   min-height: 100vh;
   width: 100vw;
