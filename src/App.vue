@@ -14,4 +14,8 @@
 html {
   font-family: 'Poppins', sans-serif;
 }
+
+h1 {
+  font-size: 1.8rem;
+}
 </style>

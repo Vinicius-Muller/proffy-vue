@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper-view">
+  <section class="wrapper-view">
   <Header />
   <TitleList />
   <TeacherBox :Teachers="Teachers"/>
-  </div>
+  </section>
 </template>
 
 <script>
