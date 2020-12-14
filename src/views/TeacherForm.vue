@@ -30,6 +30,7 @@
       <h2>Horários disponíveis</h2>
       <div class="spacer"></div>
       <div class="schedules-box">
+        <div class="input-box">
         <label for="day">Dia da semana</label>
         <select name="day" id="day">
           <option value="1">Segunda-feira</option>
@@ -40,14 +41,21 @@
           <option value="6">Sabádo</option>
           <option value="7">Domingo</option>
         </select>
+        </div>
+        <div class="input-box">
         <label for="from">Das</label>
         <input type="time" name="from" id="from">
+        </div>
+        <div class="input-box">
         <label for="to">Até</label>
         <input type="time" id="to" name="to">
+        </div>
       </div>
       <div class="form-end">
+        <div class="warning-box">
         <img src="@/assets/icons/warning.svg" alt="Preencha todos os dados">
         <span>Preencha todos os dados</span>
+        </div>
         <input type="submit" class="submit" value="Salvar cadastro">
       </div>
     </form>
@@ -94,8 +102,82 @@ components: {
 }
 
 form {
-  width: 80%;
+  width: 60%;
+  margin-top: 10vh;
   background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
 }
 
+form .spacer {
+  height: 1px;
+  background-color: #ddd;
+  margin-bottom:30px;
+  margin-top:10px;
+  
+}
+form label {
+  color: #aaa;
+}
+form input, select {
+  border-radius:10px;
+  height: 40px;
+  border: none;
+  background-color:rgb(252, 246, 246);
+  outline:none;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+form textarea {
+  border-radius: 10px;
+  border:none;
+  background-color:rgb(252, 246, 246);
+  outline:none;
+  margin-bottom: 30px;
+  font-size: 1.3rem;
+  height: 100px;
+}
+
+form .schedules-box {
+ width: 100%;
+ display: flex;
+ justify-content: space-evenly;
+}
+
+form .input-box {
+  display:flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+form .form-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+form .form-end .submit {
+  width: 30%;
+  height: 40px;
+  background-color: #04D361;
+  color:white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+form .form-end .submit:hover {
+  background-color: #04BF58;
+}
+
+form .form-end .warning-box {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
