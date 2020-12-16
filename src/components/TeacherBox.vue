@@ -8,9 +8,9 @@
      <p class="description">{{teacher.description}}</p>
      <footer>
        <p>Preço/Hora <strong>R${{teacher.price}}</strong></p>
-       <button><img src="@/assets/icons/whatsapp.svg" alt="Entrar em contato no whatsapp">
+       <a :href='`https://api.whatsapp.com/send?phone=${teacher.fone}&text=Ol%C3%A1`'><img src="@/assets/icons/whatsapp.svg" alt="Entrar em contato no whatsapp">
        <span>Entrar em contato</span>
-       </button>
+       </a>
      </footer>
    </article>
  </main>
@@ -67,7 +67,7 @@ footer {
   padding:20px;
 }
 
-footer button {
+footer a {
   width: 30%;
   height: 50px;
   border:none;
@@ -80,18 +80,19 @@ footer button {
   align-items: center;
   transition:all 0.3s;
   cursor:pointer;
+  text-decoration: none;
 }
 
-footer button:hover {
+footer a:hover {
   background-color: #04BF58;
 }
 
-footer button img {
+footer a img {
   width: 20px;
   height: 20px;
 }
 
-footer button span {
+footer a span {
   font-size: 1rem;
   font-weight: bold;
 }
