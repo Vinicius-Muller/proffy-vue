@@ -103,4 +103,10 @@ export default {
   .wrapper .input-wrapper .submit:hover {
     background-color: #04BF58;
   }
+
+  @media screen and (max-width:550px){
+  .wrapper .input-wrapper .submit{
+    width:30%;
+  }
+}
 </style>

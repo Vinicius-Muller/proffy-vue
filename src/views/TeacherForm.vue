@@ -1,7 +1,7 @@
 <template>
   <section class="wrapper-view">
     <Header>
-      <router-link to="/TeacherList"><img class="go-to" src="@/assets/icons/back.svg" alt="Veja os proffys disponíveis">Veja os proffys disponíveis</router-link>
+      <router-link to="/TeacherList"><img class="go-to" src="@/assets/icons/back.svg" alt="Veja os proffys disponíveis">Proffys disponíveis</router-link>
     </Header>
     <div class="title-box">
       <h1>Que incrivel que você quer dar aula</h1>
@@ -195,5 +195,50 @@ form .form-end .warning-box {
   display:flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media screen and (max-width:750px) {
+  form .schedules-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form .input-box {
+    width: 100%;
+  }
+
+  form .form-end .warning-box {
+    text-align: center;
+    width: 150px;
+  }
+
+  form .form-end .submit {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width:550px) {
+
+  .title-box h1 {
+    text-align: center;
+  }
+
+  .title-box p {
+    display: none;
+  }
+
+  form {
+    text-align: center;
+    width: 90%;
+    margin-top: 5vh;
+  }
+  form .form-end {
+    flex-direction: column;
+  }
+
+  form .form-end .submit {
+    width: 60%;
+    margin-top: 20px;
+  }
 }
 </style>

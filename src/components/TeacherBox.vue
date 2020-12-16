@@ -97,4 +97,43 @@ footer a span {
   font-weight: bold;
 }
 
+@media screen and (max-width:995px) {
+  footer a {
+    background-color:transparent;
+  }
+
+  footer a:hover {
+    background-color: transparent;
+  }
+
+  footer a span {
+    display:none;
+  }
+
+  footer a img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width:550px){
+
+  article {
+    width: 90vw;
+    text-align: center;
+  }
+
+  article header {
+    justify-content: center;
+  }
+
+  article header h2 {
+    padding: 0;
+  }
+
+  header .img {
+    display:none;
+  }
+}
+
 </style>
