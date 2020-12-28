@@ -11,13 +11,13 @@
       <h2>Seus Dados</h2>
       <div class="spacer"></div>
       <label for="name">Nome</label>
-      <input type="text" id="name" name="name">
+      <input type="text" id="name" name="name" v-model="name">
       <label for="picture">Link para sua foto  <small>(comece com https://)</small></label>
-      <input type="text" id="picture" name="picture">
+      <input type="text" id="picture" name="picture" v-model="link">
       <label for="whatsapp">Whatsapp</label>
-      <input type="number" id="whatsapp" name="whatsapp">
+      <input type="number" id="whatsapp" name="whatsapp" v-model="whatsapp">
       <label for="description">Fale sobre sua história</label>
-      <textarea name="description" id="description" cols="30" rows="10"></textarea>
+      <textarea name="description" id="description" cols="30" rows="10" v-model="bio"></textarea>
       <h2>Sobre a aula</h2>
       <div class="spacer"></div>
       <label for="subject">Matéria</label>
@@ -58,17 +58,23 @@
         <img src="@/assets/icons/warning.svg" alt="Preencha todos os dados">
         <span>Preencha todos os dados</span>
         </div>
-        <input type="submit" class="submit" value="Salvar cadastro">
+        <input type="submit" class="submit" value="Salvar cadastro" @click.prevent="updateProf({name,link,whatsapp,bio,cost})">
+        {{this.$store.state.prof}}
       </div>
     </form>
   </section>
 </template>
 
-<script>import Header from '@/components/Header.vue';
+<script>
+import Header from '@/components/Header.vue';
+import {mapActions} from 'vuex';
 export default {
 name: 'TeacherForm',
 components: {
   Header
+},
+methods: {
+  ...mapActions(['updateProf'])
 }
 }
 </script>
