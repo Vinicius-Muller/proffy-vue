@@ -5,23 +5,28 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    teacher: {
-    name:'',
-    link:'',
-    whatsapp:'',
-    bio:'',
-    subject:'',
-    cost:'',
-    day:'',
-    from:'',
-    to:''
-    },
-    prof:[]
+    prof:[
+      {
+        name:"Vinícius Muller",
+        description:"Oi meu nome é Vinícius",
+        fone:"9810112347",
+        price:"20,00"
+      },
+      {
+        name:"Mayk Brito",
+        description:"Oi meu nome é Mayk",
+        fone:"981054338",
+        price:"30,00"
+      },
+      {
+        name:"Diego Fernandes",
+        description:"Oi meu nome é Diego",
+        fone:"981014567",
+        price:"40,00"
+      }
+    ]
   },
   mutations: {
-    UPDATE_TEACHER(state, payload) {
-      state.teacher = Object.assign(state.teacher, payload)
-    },
     UPDATE_PROF(state, payload) {
       state.prof.push(payload)
     }

@@ -3,45 +3,73 @@
   <Header>
     <router-link to="/TeacherForm">Cadastre-se<img class="go-to" src="@/assets/icons/back.svg" alt="Veja os proffys disponíveis"></router-link>
   </Header>
-  <TitleList />
-  <TeacherBox :Teachers="Teachers"/>
+  <h1>Esses são os proffys disponíveis.</h1>
+
+  <div class="title-box">
+    <div class="input-wrapper">
+      <div class="select-box">
+        <label for="subject">Matéria</label>
+        <select name="subject" id="subject">
+        <option value="1">Artes</option>
+        <option value="2">Português</option>
+        <option value="3">Matemática</option>
+        <option value="4">Ciências</option>
+        </select>
+      </div>
+
+      <div class="select-box">
+        <label for="days">Dias</label>
+        <select name="days" id="days">
+          <option value="1">Segunda-feira</option>
+          <option value="2">Terça-feira</option>
+          <option value="3">Quarta-feira</option>
+          <option value="4">Quinta-feira</option>
+          <option value="5">Sexta-feira</option>
+          <option value="6">Sabádo</option>
+          <option value="7">Domingo</option>
+        </select>
+      </div>
+
+      <div class="select-box">
+        <label for="time">Matéria</label>
+        <input type="time" name="time" id="time">
+      </div>
+
+      <button class="submit">Procurar</button>
+    </div>
+    </div>
+
+    <main>
+   <article v-for="(teacher, index) in prof" :key="index">
+     <header class="header">
+       <img class="img" :src="`${teacher.link}`">
+       <h2>{{teacher.name}}</h2>
+     </header>
+     <p class="description">{{teacher.description}}</p>
+     <footer>
+       <p>Preço/Hora <strong>R${{teacher.price}}</strong></p>
+       <a :href='`https://api.whatsapp.com/send?phone=${teacher.fone}&text=Ol%C3%A1`'><img src="@/assets/icons/whatsapp.svg" alt="Entrar em contato no whatsapp">
+       <span>Entrar em contato</span>
+       </a>
+     </footer>
+   </article>
+ </main>
   </section>
 </template>
 
 <script>
 import Header from '@/components/Header.vue';
-import TitleList from '@/components/TitleList.vue';
-import TeacherBox from '@/components/TeacherBox.vue';
+import {mapActions, mapState} from 'vuex';
 export default {
 name: 'TeacherList',
 components: {
-  Header,
-  TitleList,
-  TeacherBox
+  Header
 },
-data() {
-  return {
-    Teachers: {
-    Vinicius: {
-      name:"Vinícius Muller",
-      description:"Oi meu nome é Vinícius",
-      fone:"9810112347",
-      price:"20,00"
-    },
-    Mayk: {
-      name:"Mayk Brito",
-      description:"Oi meu nome é Mayk",
-      fone:"981054338",
-      price:"30,00"
-    },
-    Diego: {
-      name:"Diego Fernandes",
-      description:"Oi meu nome é Diego",
-      fone:"981014567",
-      price:"40,00"
-    }
-    }
-  }
+computed: {
+  ...mapState(["prof"])
+},
+methods: {
+  ...mapActions(['updateProf'])
 }
 }
 </script>
@@ -71,4 +99,184 @@ a .go-to {
   flex-direction: column;
   align-items: center;
 }
+
+ .title-box {
+    width:100vw;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(145 107 234);
+  }
+
+  .title-box h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .title-box .input-wrapper {
+    display:flex;
+    justify-content: center;
+    width: 80vw;
+  }
+
+  .title-box .select-box {
+    display:flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 0 10px;
+  }
+
+  .title-box .select-box label {
+    color:white;
+  }
+  
+  .title-box .select-box select, input {
+    outline: none;
+    height: 30px;
+    border-radius: 5px;
+    color: rgb(145 107 234);
+    font-size: 0.9rem;
+    cursor: pointer;
+    border:none;
+  }
+  
+  .title-box .input-wrapper .submit{
+    width: 20%;
+    height: 40px;
+    border-radius:5px;
+    background-color: #04D361;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s all;
+    margin-top: 20px;
+  }
+
+  .title-box .input-wrapper .submit:hover {
+    background-color: #04BF58;
+  }
+
+  @media screen and (max-width:550px){
+  .title-box .input-wrapper .submit{
+    width:30%;
+  }
+}
+
+article {
+  width: 60vw;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10vh;
+}
+
+.header {
+  width:100%;
+  display: flex;
+  align-items: center;
+  padding:20px;
+}
+
+.header h2 {
+  padding-left: 40px;
+}
+
+.header .img {
+  width: 100px;
+  height:100px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+
+.description {
+  color: rgb(54, 54, 54);
+  padding-right:20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+footer {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top:1px solid #ccc;
+  padding:20px;
+}
+
+footer a {
+  width: 30%;
+  height: 50px;
+  border:none;
+  background-color:#04D361;
+  color:white;
+  border-radius: 5px;
+  align-self:center;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition:all 0.3s;
+  cursor:pointer;
+  text-decoration: none;
+}
+
+footer a:hover {
+  background-color: #04BF58;
+}
+
+footer a img {
+  width: 20px;
+  height: 20px;
+}
+
+footer a span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width:995px) {
+  footer a {
+    background-color:transparent;
+  }
+
+  footer a:hover {
+    background-color: transparent;
+  }
+
+  footer a span {
+    display:none;
+  }
+
+  footer a img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width:550px){
+
+  article {
+    width: 90vw;
+    text-align: center;
+  }
+
+  article header {
+    justify-content: center;
+  }
+
+  article header h2 {
+    padding: 0;
+  }
+
+  header .img {
+    display:none;
+  }
+}
+
 </style>

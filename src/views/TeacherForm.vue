@@ -15,26 +15,26 @@
       <label for="picture">Link para sua foto  <small>(comece com https://)</small></label>
       <input type="text" id="picture" name="picture" v-model="link">
       <label for="whatsapp">Whatsapp</label>
-      <input type="number" id="whatsapp" name="whatsapp" v-model="whatsapp">
+      <input type="number" id="whatsapp" name="whatsapp" v-model="fone">
       <label for="description">Fale sobre sua história</label>
-      <textarea name="description" id="description" cols="30" rows="10" v-model="bio"></textarea>
+      <textarea name="description" id="description" cols="30" rows="10" v-model="description"></textarea>
       <h2>Sobre a aula</h2>
       <div class="spacer"></div>
       <label for="subject">Matéria</label>
-      <select name="subject" id="subject">
+      <select name="subject" id="subject" v-model="subject">
         <option value="1">Artes</option>
         <option value="2">Português</option>
         <option value="3">Matemática</option>
         <option value="4">Ciências</option>
       </select>
-      <label for="price">Custo da hora/aula</label>
-      <input type="number">
+      <label for="price">Custo da hora/aula Ex 20,00</label>
+      <input type="number" v-model="price">
       <h2>Horários disponíveis</h2>
       <div class="spacer"></div>
       <div class="schedules-box">
         <div class="input-box">
         <label for="day">Dia da semana</label>
-        <select name="day" id="day">
+        <select name="day" id="day" v-model="day">
           <option value="1">Segunda-feira</option>
           <option value="2">Terça-feira</option>
           <option value="3">Quarta-feira</option>
@@ -46,11 +46,11 @@
         </div>
         <div class="input-box">
         <label for="from">Das</label>
-        <input type="time" name="from" id="from">
+        <input type="time" name="from" id="from" v-model="from">
         </div>
         <div class="input-box">
         <label for="to">Até</label>
-        <input type="time" id="to" name="to">
+        <input type="time" id="to" name="to" v-model="to">
         </div>
       </div>
       <div class="form-end">
@@ -58,8 +58,7 @@
         <img src="@/assets/icons/warning.svg" alt="Preencha todos os dados">
         <span>Preencha todos os dados</span>
         </div>
-        <input type="submit" class="submit" value="Salvar cadastro" @click.prevent="updateProf({name,link,whatsapp,bio,cost})">
-        {{this.$store.state.prof}}
+        <input type="submit" class="submit" value="Salvar cadastro" @click.prevent="updateProf({name,link,fone,description,price,day,to,from})">
       </div>
     </form>
   </section>
@@ -67,14 +66,23 @@
 
 <script>
 import Header from '@/components/Header.vue';
-import {mapActions} from 'vuex';
 export default {
 name: 'TeacherForm',
 components: {
   Header
 },
-methods: {
-  ...mapActions(['updateProf'])
+data() {
+  return {
+    name:'',
+    link:'',
+    fone:'',
+    description:'',
+    subject:'',
+    price:'',
+    day:'',
+    from:'',
+    to:''
+  }
 }
 }
 </script>
