@@ -3,9 +3,9 @@
   <Header>
     <router-link to="/TeacherForm">Cadastre-se<img class="go-to" src="@/assets/icons/back.svg" alt="Veja os proffys disponíveis"></router-link>
   </Header>
-  <h1>Esses são os proffys disponíveis.</h1>
 
   <div class="title-box">
+  <h1>Esses são os proffys disponíveis.</h1>
     <div class="input-wrapper">
       <div class="select-box">
         <label for="subject">Matéria</label>
