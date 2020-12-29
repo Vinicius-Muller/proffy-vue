@@ -4,42 +4,13 @@
     <router-link to="/TeacherForm">Cadastre-se<img class="go-to" src="@/assets/icons/back.svg" alt="Veja os proffys disponíveis"></router-link>
   </Header>
 
+  
   <div class="title-box">
-  <h1>Esses são os proffys disponíveis.</h1>
-    <div class="input-wrapper">
-      <div class="select-box">
-        <label for="subject">Matéria</label>
-        <select name="subject" id="subject">
-        <option value="1">Artes</option>
-        <option value="2">Português</option>
-        <option value="3">Matemática</option>
-        <option value="4">Ciências</option>
-        </select>
-      </div>
+  <h1 v-if="prof.length >= 1">Esses são os proffys disponíveis.</h1>
+  <h1 v-else>Não possuimos proffys disponíveis.</h1>
+  </div>
 
-      <div class="select-box">
-        <label for="days">Dias</label>
-        <select name="days" id="days">
-          <option value="1">Segunda-feira</option>
-          <option value="2">Terça-feira</option>
-          <option value="3">Quarta-feira</option>
-          <option value="4">Quinta-feira</option>
-          <option value="5">Sexta-feira</option>
-          <option value="6">Sabádo</option>
-          <option value="7">Domingo</option>
-        </select>
-      </div>
-
-      <div class="select-box">
-        <label for="time">Matéria</label>
-        <input type="time" name="time" id="time">
-      </div>
-
-      <button class="submit">Procurar</button>
-    </div>
-    </div>
-
-    <main>
+    <main v-if="prof.length >= 1">
    <article v-for="(teacher, index) in prof" :key="index">
      <header class="header">
        <img class="img" :src="`${teacher.link}`">
@@ -48,12 +19,18 @@
      <p class="description">{{teacher.description}}</p>
      <footer>
        <p>Preço/Hora <strong>R${{teacher.price}}</strong></p>
+       {{teacher.day}} {{teacher.from}} {{teacher.to}}
        <a :href='`https://api.whatsapp.com/send?phone=${teacher.fone}&text=Ol%C3%A1`'><img src="@/assets/icons/whatsapp.svg" alt="Entrar em contato no whatsapp">
        <span>Entrar em contato</span>
        </a>
      </footer>
    </article>
  </main>
+
+ <div class="no-teachers" v-else>
+   <img src="@/assets/sad.svg" alt="ainda não temos nenhum cadastro">
+   <p>cadastre-se já</p>
+ </div>
   </section>
 </template>
 
@@ -69,7 +46,7 @@ computed: {
   ...mapState(["prof"])
 },
 methods: {
-  ...mapActions(['updateProf'])
+  ...mapActions(['updateProf']),
 }
 }
 </script>
@@ -102,7 +79,7 @@ a .go-to {
 
  .title-box {
     width:100vw;
-    height: 300px;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -238,6 +215,24 @@ footer a img {
 footer a span {
   font-size: 1rem;
   font-weight: bold;
+}
+
+.no-teachers {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 40vh;
+}
+
+.no-teachers img {
+  opacity: 0.2;
+  margin-bottom: 10px;
+}
+
+.no-teachers p{
+  opacity: 0.3;
 }
 
 @media screen and (max-width:995px) {

@@ -16,7 +16,7 @@ export default {
 <style scoped>
   header {
     width: 100vw;
-    height: 50px;
+    height: 10vh;
     display:flex;
     justify-content: space-evenly;
     align-items: center;
