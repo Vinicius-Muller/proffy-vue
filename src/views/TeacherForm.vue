@@ -66,6 +66,7 @@
 
 <script>
 import Header from '@/components/Header.vue';
+import { mapActions } from 'vuex';
 export default {
 name: 'TeacherForm',
 components: {
@@ -83,6 +84,9 @@ data() {
     from:'',
     to:''
   }
+},
+methods: {
+  ...mapActions(["updateProf"])
 }
 }
 </script>
