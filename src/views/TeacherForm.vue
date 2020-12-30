@@ -118,7 +118,7 @@ a .go-to {
 
 .wrapper-view .title-box {
   width: 100vw;
-  height: 200px;
+  height: 50vh;
   background-color: rgb(145 107 234);
   display: flex;
   flex-direction: column;

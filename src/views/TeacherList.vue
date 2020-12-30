@@ -8,6 +8,7 @@
   <div class="title-box">
   <h1 v-if="prof.length >= 1">Esses são os proffys disponíveis.</h1>
   <h1 v-else>Não possuímos proffys disponíveis.</h1>
+  <img src="@/assets/down-arrow.svg" alt="ver proffys">
   </div>
 
     <main v-if="prof.length >= 1">
@@ -19,7 +20,7 @@
      <p class="description">{{teacher.description}} - <strong>{{teacher.subject}}</strong></p>
      <footer>
        <p>Preço/Hora <strong>R${{teacher.price}}</strong></p>
-       <p>{{teacher.day}} de {{teacher.from}} a {{teacher.to}}</p>
+       <p><strong>{{teacher.day}}</strong> das {{teacher.from}} as {{teacher.to}}</p>
        <a :href='`https://api.whatsapp.com/send?phone=${teacher.fone}&text=Ol%C3%A1`'><img src="@/assets/icons/whatsapp.svg" alt="Entrar em contato no whatsapp">
        <span>Entrar em contato</span>
        </a>
@@ -85,6 +86,7 @@ a .go-to {
     align-items: center;
     justify-content: center;
     background-color: rgb(145 107 234);
+    position:relative;
   }
 
   .title-box h1 {
@@ -93,56 +95,21 @@ a .go-to {
     margin-bottom: 50px;
   }
 
-  .title-box .input-wrapper {
-    display:flex;
-    justify-content: center;
-    width: 80vw;
+  .title-box img {
+    height: 5vh;
+    position:absolute;
+    bottom: 0;
+    animation: arrow 0.5s ease-in infinite alternate;
   }
 
-  .title-box .select-box {
-    display:flex;
-    flex-direction: column;
-    width: 20%;
-    margin: 0 10px;
+  @keyframes arrow {
+    from {
+      bottom:3vh;
+    }
+    to {
+      bottom: 0;
+      }
   }
-
-  .title-box .select-box label {
-    color:white;
-  }
-  
-  .title-box .select-box select, input {
-    outline: none;
-    height: 30px;
-    border-radius: 5px;
-    color: rgb(145 107 234);
-    font-size: 0.9rem;
-    cursor: pointer;
-    border:none;
-  }
-  
-  .title-box .input-wrapper .submit{
-    width: 20%;
-    height: 40px;
-    border-radius:5px;
-    background-color: #04D361;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s all;
-    margin-top: 20px;
-  }
-
-  .title-box .input-wrapper .submit:hover {
-    background-color: #04BF58;
-  }
-
-  @media screen and (max-width:550px){
-  .title-box .input-wrapper .submit{
-    width:30%;
-  }
-}
 
 article {
   width: 60vw;
@@ -236,6 +203,11 @@ footer a span {
 }
 
 @media screen and (max-width:995px) {
+
+  .title-box {
+    height: 50vh;
+  }
+
   footer a {
     background-color:transparent;
   }
@@ -261,17 +233,19 @@ footer a span {
     text-align: center;
   }
 
-  article header {
+  article .header {
     justify-content: center;
+    flex-direction:column;
   }
 
-  article header h2 {
+  article .header h2 {
     padding: 0;
   }
 
-  header .img {
-    display:none;
+  article .header .img {
+    margin-bottom: 2vh;
   }
+
 }
 
 </style>
