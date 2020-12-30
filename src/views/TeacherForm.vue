@@ -22,10 +22,10 @@
       <div class="spacer"></div>
       <label for="subject">Matéria</label>
       <select name="subject" id="subject" v-model="subject">
-        <option value="1">Artes</option>
-        <option value="2">Português</option>
-        <option value="3">Matemática</option>
-        <option value="4">Ciências</option>
+        <option value="Artes">Artes</option>
+        <option value="Português">Português</option>
+        <option value="Matemática">Matemática</option>
+        <option value="Ciências">Ciências</option>
       </select>
       <label for="price">Custo da hora/aula Ex 20,00</label>
       <input type="number" v-model="price">
@@ -35,13 +35,13 @@
         <div class="input-box">
         <label for="day">Dia da semana</label>
         <select name="day" id="day" v-model="day">
-          <option value="1">Segunda-feira</option>
-          <option value="2">Terça-feira</option>
-          <option value="3">Quarta-feira</option>
-          <option value="4">Quinta-feira</option>
-          <option value="5">Sexta-feira</option>
-          <option value="6">Sabádo</option>
-          <option value="7">Domingo</option>
+          <option value="Segunda-feira">Segunda-feira</option>
+          <option value="Terça-feira">Terça-feira</option>
+          <option value="Quarta-feira">Quarta-feira</option>
+          <option value="Quinta-feira">Quinta-feira</option>
+          <option value="Sexta-feira">Sexta-feira</option>
+          <option value="Sabádo">Sabádo</option>
+          <option value="Domingo">Domingo</option>
         </select>
         </div>
         <div class="input-box">
@@ -58,7 +58,7 @@
         <img src="@/assets/icons/warning.svg" alt="Preencha todos os dados">
         <span>Preencha todos os dados</span>
         </div>
-        <input type="submit" class="submit" value="Salvar cadastro" @click.prevent="updateProf({name,link,fone,description,price,day,to,from})">
+        <input type="submit" class="submit" value="Salvar cadastro" @click.prevent="updateProf({name,link,fone,description,subject,price,day,to,from})">
       </div>
     </form>
   </section>

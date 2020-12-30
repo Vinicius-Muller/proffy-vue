@@ -7,7 +7,7 @@
   
   <div class="title-box">
   <h1 v-if="prof.length >= 1">Esses são os proffys disponíveis.</h1>
-  <h1 v-else>Não possuimos proffys disponíveis.</h1>
+  <h1 v-else>Não possuímos proffys disponíveis.</h1>
   </div>
 
     <main v-if="prof.length >= 1">
@@ -16,10 +16,10 @@
        <img class="img" :src="`${teacher.link}`">
        <h2>{{teacher.name}}</h2>
      </header>
-     <p class="description">{{teacher.description}}</p>
+     <p class="description">{{teacher.description}} - <strong>{{teacher.subject}}</strong></p>
      <footer>
        <p>Preço/Hora <strong>R${{teacher.price}}</strong></p>
-       {{teacher.day}} {{teacher.from}} {{teacher.to}}
+       <p>{{teacher.day}} de {{teacher.from}} a {{teacher.to}}</p>
        <a :href='`https://api.whatsapp.com/send?phone=${teacher.fone}&text=Ol%C3%A1`'><img src="@/assets/icons/whatsapp.svg" alt="Entrar em contato no whatsapp">
        <span>Entrar em contato</span>
        </a>
