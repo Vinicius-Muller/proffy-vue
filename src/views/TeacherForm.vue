@@ -159,7 +159,7 @@ form input, select {
   border-radius:10px;
   height: 40px;
   border: none;
-  background-color:rgb(252, 246, 246);
+  background-color:#eee;
   outline:none;
   margin-bottom: 30px;
   font-size: 1rem;
@@ -167,7 +167,7 @@ form input, select {
 form textarea {
   border-radius: 10px;
   border:none;
-  background-color:rgb(252, 246, 246);
+  background-color:#eee;
   outline:none;
   margin-bottom: 30px;
   font-size: 1.3rem;
